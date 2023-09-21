@@ -1,0 +1,38 @@
+rescript = 1
+rule cp
+  command = cmd.exe /C copy /Y $i $out >NUL
+rule touch
+ command = cmd.exe /C type nul >>$out & copy $out+,, >NUL
+o Body.cmi : cp ..\bs\src\components\Body.cmi
+o Body.cmj : cp ..\bs\src\components\Body.cmj
+o Body.cmt : cp ..\bs\src\components\Body.cmt
+o Body.res : cp ..\..\src\components\Body.res
+o Footer.cmi : cp ..\bs\src\components\Footer.cmi
+o Footer.cmj : cp ..\bs\src\components\Footer.cmj
+o Footer.cmt : cp ..\bs\src\components\Footer.cmt
+o Footer.res : cp ..\..\src\components\Footer.res
+o Header.cmi : cp ..\bs\src\components\Header\Header.cmi
+o Header.cmj : cp ..\bs\src\components\Header\Header.cmj
+o Header.cmt : cp ..\bs\src\components\Header\Header.cmt
+o Header.res : cp ..\..\src\components\Header\Header.res
+o ImageHeader.cmi : cp ..\bs\src\components\Header\ImageHeader.cmi
+o ImageHeader.cmj : cp ..\bs\src\components\Header\ImageHeader.cmj
+o ImageHeader.cmt : cp ..\bs\src\components\Header\ImageHeader.cmt
+o ImageHeader.res : cp ..\..\src\components\Header\ImageHeader.res
+o Head.cmi : cp ..\bs\src\bidings\next\Head.cmi
+o Head.cmj : cp ..\bs\src\bidings\next\Head.cmj
+o Head.cmt : cp ..\bs\src\bidings\next\Head.cmt
+o Head.res : cp ..\..\src\bidings\next\Head.res
+o Link.cmi : cp ..\bs\src\bidings\next\Link.cmi
+o Link.cmj : cp ..\bs\src\bidings\next\Link.cmj
+o Link.cmt : cp ..\bs\src\bidings\next\Link.cmt
+o Link.res : cp ..\..\src\bidings\next\Link.res
+o Image.cmi : cp ..\bs\src\bidings\next\Image.cmi
+o Image.cmj : cp ..\bs\src\bidings\next\Image.cmj
+o Image.cmt : cp ..\bs\src\bidings\next\Image.cmt
+o Image.res : cp ..\..\src\bidings\next\Image.res
+o Index.cmi : cp ..\bs\src\app\Index.cmi
+o Index.cmj : cp ..\bs\src\app\Index.cmj
+o Index.cmt : cp ..\bs\src\app\Index.cmt
+o Index.res : cp ..\..\src\app\Index.res
+build install.stamp : touch Body.cmi Body.cmj Footer.cmi Footer.cmj Header.cmi Header.cmj ImageHeader.cmi ImageHeader.cmj Head.cmi Head.cmj Link.cmi Link.cmj Image.cmi Image.cmj Index.cmi Index.cmj 

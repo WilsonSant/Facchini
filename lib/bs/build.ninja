@@ -1,0 +1,35 @@
+rescript = 1
+g_finger := E:\proj\facchini\node_modules\@rescript\react\lib\ocaml\install.stamp
+rule astj
+  command = "E:\proj\facchini\node_modules\.pnpm\rescript@11.0.0-rc.3\node_modules\rescript\win32\bsc.exe"  -bs-v 11.0.0-rc.3 -bs-jsx 4 -bs-jsx-mode classic -uncurried  -absname -bs-ast -o $out $i
+o src\components\Body.ast : astj ..\..\src\components\Body.res
+rule deps
+  command = "E:\proj\facchini\node_modules\.pnpm\rescript@11.0.0-rc.3\node_modules\rescript\win32\bsb_helper.exe" -hash 8b9612fe80ae992fb6c0464e55444b46 $in
+  restat = 1
+o src\components\Body.d : deps src\components\Body.ast
+rule mij
+  command = "E:\proj\facchini\node_modules\.pnpm\rescript@11.0.0-rc.3\node_modules\rescript\win32\bsc.exe" -I "src\app\history" -I "src\app" -I "src\bidings\next" -I "src\bidings" -I "src\components\Header" -I "src\components" -I src -I "E:\proj\facchini\node_modules\@rescript\react\lib\ocaml"   -uncurried -bs-package-name facchini -bs-package-output es6:$in_d:.bs.js -bs-v $g_finger $i
+  dyndep = 1
+  restat = 1
+o src\components\Body.cmj src\components\Body.cmi ..\..\src\components\Body.bs.js : mij src\components\Body.ast
+o src\components\Footer.ast : astj ..\..\src\components\Footer.res
+o src\components\Footer.d : deps src\components\Footer.ast
+o src\components\Footer.cmj src\components\Footer.cmi ..\..\src\components\Footer.bs.js : mij src\components\Footer.ast
+o src\components\Header\Header.ast : astj ..\..\src\components\Header\Header.res
+o src\components\Header\Header.d : deps src\components\Header\Header.ast
+o src\components\Header\Header.cmj src\components\Header\Header.cmi ..\..\src\components\Header\Header.bs.js : mij src\components\Header\Header.ast
+o src\components\Header\ImageHeader.ast : astj ..\..\src\components\Header\ImageHeader.res
+o src\components\Header\ImageHeader.d : deps src\components\Header\ImageHeader.ast
+o src\components\Header\ImageHeader.cmj src\components\Header\ImageHeader.cmi ..\..\src\components\Header\ImageHeader.bs.js : mij src\components\Header\ImageHeader.ast
+o src\bidings\next\Head.ast : astj ..\..\src\bidings\next\Head.res
+o src\bidings\next\Head.d : deps src\bidings\next\Head.ast
+o src\bidings\next\Head.cmj src\bidings\next\Head.cmi ..\..\src\bidings\next\Head.bs.js : mij src\bidings\next\Head.ast
+o src\bidings\next\Link.ast : astj ..\..\src\bidings\next\Link.res
+o src\bidings\next\Link.d : deps src\bidings\next\Link.ast
+o src\bidings\next\Link.cmj src\bidings\next\Link.cmi ..\..\src\bidings\next\Link.bs.js : mij src\bidings\next\Link.ast
+o src\bidings\next\Image.ast : astj ..\..\src\bidings\next\Image.res
+o src\bidings\next\Image.d : deps src\bidings\next\Image.ast
+o src\bidings\next\Image.cmj src\bidings\next\Image.cmi ..\..\src\bidings\next\Image.bs.js : mij src\bidings\next\Image.ast
+o src\app\Index.ast : astj ..\..\src\app\Index.res
+o src\app\Index.d : deps src\app\Index.ast
+o src\app\Index.cmj src\app\Index.cmi ..\..\src\app\Index.bs.js : mij src\app\Index.ast

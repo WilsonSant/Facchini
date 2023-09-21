@@ -1,0 +1,1 @@
+{ "dirs" : [ "src" , "src\\components" , "src\\components\\Header" , "src\\bidings" , "src\\bidings\\next" , "src\\app" , "src\\app\\history" ] , "pkgs" : [ [ "@rescript\\react" , "E:\\proj\\facchini\\node_modules\\@rescript\\react" ] ] , "generated" : [] }
